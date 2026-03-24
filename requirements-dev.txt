@@ -1,0 +1,4 @@
+# Development and quality tools
+ruff>=0.4
+pre-commit>=3.0
+nbstripout>=0.7

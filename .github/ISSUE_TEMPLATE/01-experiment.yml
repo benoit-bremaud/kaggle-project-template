@@ -1,0 +1,62 @@
+name: "New Experiment"
+description: "Propose and track a new ML experiment or hypothesis"
+title: "[EXP] "
+labels: ["type:experiment"]
+assignees: ["benoit-bremaud"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## New Experiment Proposal
+        Use this template to document a new experiment or hypothesis to test.
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: "Hypothesis"
+      description: "What do you expect to happen? What are you trying to prove?"
+      placeholder: "e.g., Adding target encoding for categorical features should improve accuracy by ~2%"
+    validations:
+      required: true
+
+  - type: textarea
+    id: approach
+    attributes:
+      label: "Approach"
+      description: "How will you test this hypothesis? What steps are involved?"
+      placeholder: |
+        1. Apply target encoding to columns X, Y, Z
+        2. Train Random Forest with same hyperparameters
+        3. Compare CV scores
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: "Success Criteria"
+      description: "What metric improvement would validate this experiment?"
+      placeholder: "e.g., CV accuracy >= 0.82 (current baseline: 0.79)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: features-data
+    attributes:
+      label: "Features / Data Involved"
+      description: "Which features or data sources does this experiment affect?"
+      placeholder: "e.g., categorical columns: Embarked, Cabin, Ticket"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - "priority:low"
+        - "priority:medium"
+        - "priority:high"
+        - "priority:critical"
+    validations:
+      required: true

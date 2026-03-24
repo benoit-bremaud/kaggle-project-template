@@ -1,0 +1,62 @@
+name: "Bug Report"
+description: "Report a bug in the code or pipeline"
+title: "[BUG] "
+labels: ["type:bug"]
+assignees: ["benoit-bremaud"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+        Describe the issue you encountered.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: "What happened?"
+      description: "Describe the bug clearly and concisely."
+      placeholder: "e.g., The notebook crashes at cell 15 when running df.describe()"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected behavior"
+      description: "What should have happened instead?"
+      placeholder: "e.g., df.describe() should display summary statistics without error"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: "Steps to reproduce"
+      description: "How can we reproduce the issue?"
+      placeholder: |
+        1. Open notebooks/notebook.ipynb
+        2. Run cells 1 through 15
+        3. Cell 15 raises TypeError
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "Python version, OS, relevant package versions"
+      placeholder: "Python 3.12.3, Ubuntu 24.04, pandas 2.2.0"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - "priority:low"
+        - "priority:medium"
+        - "priority:high"
+        - "priority:critical"
+    validations:
+      required: true

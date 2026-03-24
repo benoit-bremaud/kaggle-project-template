@@ -1,0 +1,41 @@
+# Virtual environment
+.venv/
+
+# Data (too large for Git)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Model outputs (too large for Git)
+outputs/models/*
+!outputs/models/.gitkeep
+
+# Keep submission CSVs tracked
+!outputs/submissions/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# uv
+.python-version

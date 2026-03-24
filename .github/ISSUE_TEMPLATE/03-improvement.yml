@@ -1,0 +1,63 @@
+name: "Improvement"
+description: "Suggest an improvement to an existing aspect of the project"
+title: "[IMPROVE] "
+labels: ["type:refactor"]
+assignees: ["benoit-bremaud"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Improvement Proposal
+        Suggest an enhancement to the existing codebase, pipeline, or workflow.
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: "Current state"
+      description: "Describe how things work now."
+      placeholder: "e.g., Feature engineering is done inline in the notebook with repetitive code"
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired-state
+    attributes:
+      label: "Desired state"
+      description: "Describe how things should work after the improvement."
+      placeholder: "e.g., Feature engineering functions extracted to src/features.py for reuse"
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: "Motivation"
+      description: "Why is this improvement worth doing?"
+      placeholder: "e.g., Reduces notebook complexity and enables testing of feature functions"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Area"
+      options:
+        - "area:notebook"
+        - "area:src"
+        - "area:data"
+        - "area:model"
+        - "area:infra"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - "priority:low"
+        - "priority:medium"
+        - "priority:high"
+        - "priority:critical"
+    validations:
+      required: true
