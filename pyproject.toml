@@ -24,5 +24,9 @@ ignore = [
     "E501", # line too long (handled by formatter)
 ]
 
+[tool.ruff.lint.per-file-ignores]
+# Notebooks: imports in one cell are used in later cells — ruff can't see this (ADR-026)
+"notebooks/*.ipynb" = ["F401", "F821"]
+
 [tool.ruff.lint.isort]
 known-first-party = ["src"]
