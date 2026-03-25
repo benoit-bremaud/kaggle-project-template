@@ -64,20 +64,43 @@ make notebook
 | `make data COMPETITION=name` | Download competition data via Kaggle API |
 | `make submit COMPETITION=name FILE=path` | Submit predictions via Kaggle API |
 
+## Workflow Checklist
+
+For the full workflow, see [WORKFLOW.md](../WORKFLOW.md). Here is the quick reference:
+
+### Setup (one-time)
+
+- [ ] Repo created from template
+- [ ] `make setup` — environment ready
+- [ ] Data downloaded to `data/raw/`
+- [ ] Branch protection configured (PR + CI required)
+- [ ] Labels created in repo
+- [ ] 5 standard issues created (EDA → Cleaning → Features → Model → Submission)
+- [ ] Issues added to Kaggle project board
+- [ ] Notebook header + config updated for this competition
+- [ ] README.md updated with competition details
+
+### Per-step (repeat for each issue)
+
+- [ ] `git checkout -b feat/{step-name}`
+- [ ] Code with WHY comments
+- [ ] `make lint` passes
+- [ ] `pytest tests/ -v` passes
+- [ ] Kernel → Restart & Run All
+- [ ] Commit → Push → PR (assignee, labels, project, `Closes #X`)
+- [ ] CI green → merge → post-merge cleanup
+
+### Submission
+
+- [ ] Retrain on 100% training data
+- [ ] Validate CSV format against sample submission
+- [ ] Submit to Kaggle
+- [ ] Log both scores (CV + LB) in `outputs/submissions/log.md`
+
 ## Decisions
 
 See [DECISIONS.md](DECISIONS.md) for project-specific architectural decisions.
 See the [global DECISIONS.md](../DECISIONS.md) for decisions that apply to all Kaggle projects.
-
-## Evolution Roadmap
-
-| Phase | Addition | Trigger |
-|---|---|---|
-| Phase 1 (current) | Makefile + nbstripout + pre-commit + ruff | Initial setup |
-| Phase 2 | Kaggle API Makefile targets | After first manual submission |
-| Phase 3 | GitHub Actions CI | After 2-3 competitions |
-| Phase 4 | DVC for data versioning | Datasets > 500MB |
-| Phase 5 | Docker devcontainer | Collaboration or GPU needs |
 
 ## License
 
