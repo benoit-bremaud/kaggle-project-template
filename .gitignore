@@ -37,5 +37,11 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Claude Code (local config, not shared)
+.claude/
+
+# Kaggle competition metadata (local, recreated by make new)
+.kaggle-competition
+
 # uv
 .python-version
