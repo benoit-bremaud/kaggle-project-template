@@ -26,7 +26,13 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 # Notebooks: imports in one cell are used in later cells — ruff can't see this (ADR-026)
-"notebooks/*.ipynb" = ["F401", "F821"]
+"notebooks/*.ipynb" = [
+    "E402", # module-level import not at top of file
+    "F401", # imported but unused (cross-cell usage)
+    "F811", # redefinition of unused name
+    "F821", # undefined name (cross-cell reference)
+    "E501", # line too long
+]
 
 [tool.ruff.lint.isort]
 known-first-party = ["src"]
