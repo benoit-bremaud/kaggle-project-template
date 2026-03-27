@@ -27,6 +27,7 @@ Kaggle competition project — data science / machine learning.
 - **Branch naming:** `feat/{experiment-name}` (e.g., `feat/random-forest-baseline`)
 - **Commit format:** Conventional Commits — `<type>(<scope>): <description>`
 - **Branch protection:** PRs required to merge into `main`, no force push
+- **CI checks required:** `Lint & Format` (ruff) and `Tests` (pytest) must pass before merge
 - **Notebook outputs:** Automatically stripped by nbstripout on commit
 
 ## Project Structure
@@ -62,6 +63,6 @@ When creating issues, use the DS-oriented label system:
 - **Area:** `area:notebook`, `area:src`, `area:data`, `area:model`, `area:infra`
 - **Priority:** `priority:critical`, `priority:high`, `priority:medium`, `priority:low`
 - **Status:** `status:blocked`, `status:needs-review`, `status:wontfix`
-- **Meta:** `claude-code-assisted`, `good-first-issue`
+- **Meta:** `good-first-issue`
 
 Assign multiple relevant labels per issue for effective filtering.
