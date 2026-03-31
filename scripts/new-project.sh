@@ -121,7 +121,7 @@ find "$DEST_DIR" -type f \( \
     -name "*.yaml" -o \
     -name "*.sh" -o \
     -name "*.py" \
-) -exec sed -i "s/COMPETITION_NAME/${COMPETITION}/g" {} +
+\) -exec sed -i "s/COMPETITION_NAME/${COMPETITION}/g" {} +
 
 # Update pyproject.toml project name
 sed -i "s/name = \"kaggle-project\"/name = \"${REPO_NAME}\"/" "$DEST_DIR/pyproject.toml"
