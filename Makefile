@@ -1,4 +1,4 @@
-.PHONY: setup notebook lint format clean data submit help
+.PHONY: setup notebook lint format clean data submit new new-agent help
 
 VENV := .venv
 PYTHON := $(VENV)/bin/python
@@ -11,6 +11,23 @@ help: ## Show this help message
 	@echo ""
 	@echo "Targets:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+
+new: ## Create a new classic Kaggle project (set COMPETITION=name)
+ifndef COMPETITION
+	@echo "Usage: make new COMPETITION=titanic"
+	@echo "Creates: ../kaggle-titanic/ + GitHub repo benoit-bremaud/kaggle-titanic"
+else
+	@bash scripts/new-project.sh "$(COMPETITION)" classic
+endif
+
+new-agent: ## Create a new agent-type Kaggle project (set COMPETITION=name)
+ifndef COMPETITION
+	@echo "Usage: make new-agent COMPETITION=sae-agent"
+	@echo "Creates: ../kaggle-sae-agent/ + GitHub repo benoit-bremaud/kaggle-sae-agent"
+	@echo "Includes: Anthropic SDK, cost tracker, prompt versioning, agent loop scaffold"
+else
+	@bash scripts/new-project.sh "$(COMPETITION)" agent
+endif
 
 setup: ## Run initial project setup (venv, deps, hooks)
 	@bash setup.sh

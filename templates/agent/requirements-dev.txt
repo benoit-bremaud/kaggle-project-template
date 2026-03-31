@@ -1,0 +1,8 @@
+# Code quality
+ruff>=0.4
+pre-commit>=3.0
+nbstripout>=0.7
+
+# Testing
+pytest>=8.0
+pytest-mock>=3.14

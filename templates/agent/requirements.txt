@@ -1,0 +1,5 @@
+# LLM provider
+anthropic>=0.40.0
+
+# Environment variables
+python-dotenv>=1.0.0
