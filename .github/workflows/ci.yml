@@ -27,6 +27,29 @@ jobs:
       - name: Check formatting
         run: ruff format --check src/ notebooks/
 
+  journal-check:
+    name: Journal Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check JOURNAL.md updated
+        run: |
+          LABELS='${{ toJson(github.event.pull_request.labels.*.name) }}'
+          if echo "$LABELS" | grep -q "skip-journal"; then
+            echo "Label skip-journal détecté — vérification ignorée."
+            exit 0
+          fi
+          if git diff origin/main...HEAD --name-only | grep -q "^JOURNAL.md$"; then
+            echo "JOURNAL.md mis à jour."
+          else
+            echo "::error::JOURNAL.md n'a pas été mis à jour."
+            echo "Ajoutez une entrée dans JOURNAL.md ou appliquez le label 'skip-journal' pour les PRs triviales."
+            exit 1
+          fi
+
   test:
     name: Tests
     runs-on: ubuntu-latest

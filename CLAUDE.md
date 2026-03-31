@@ -47,6 +47,7 @@ Kaggle competition project — data science / machine learning.
 - **Track submission scores** in `outputs/submissions/log.md`
 - **No `any` type** — not applicable here (Python project) but maintain type hints where practical
 - **No hardcoded paths** — use the `Path` constants defined in notebook section 2 (Configuration)
+- **Always update `JOURNAL.md`** at the end of each session, before opening a PR — log actions, decisions, bugs fixed, and next step
 
 ## Decisions
 

@@ -33,5 +33,6 @@
 - [ ] Notebook outputs are stripped (nbstripout)
 - [ ] Submission score logged in `outputs/submissions/log.md` (if applicable)
 - [ ] No raw data or model files committed
+- [ ] `JOURNAL.md` mis à jour (ou label `skip-journal` ajouté si PR triviale)
 
 Closes #<!-- issue number -->
